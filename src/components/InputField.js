@@ -4,11 +4,11 @@ import Modal from './Modal';
 
 const API = 'https://jsonplaceholder.typicode.com/posts/';
 
-class InputField extends React.Component{
+class InputField extends Component{
     constructor(props){
         super(props);
         this.state = {id: '',
-                      title: null,
+                      title: '',
                       body: null,
                       show: false};
         this.handleChange = this.handleChange.bind(this);
@@ -33,18 +33,19 @@ class InputField extends React.Component{
             .then(data => this.setState({title: data.title, body: data.body}));
         this.show();   
     }
+
     render (){
         return(
             <div>
-                <Modal show={this.state.show} header={this.state.id} hide={this.hide}> 
+                <Modal show={this.state.show} header={this.state.id} hide={this.hide} validType={"number"}> 
                     <div>
                         <label className="modal-label">
                             Title
-                            <input className="bx" type="text" value={this.state.title}/>
+                            <input className="bx" type="text"  value={this.state.title}/>
                         </label>
                         <label className="modal-label">
                             Body
-                            <input className="bx bx-body" type="text" value={this.state.body}/>
+                            <input className="bx bx-body" type="text" />
                         </label>
                     </div>
                 </Modal>
