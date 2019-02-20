@@ -40,11 +40,11 @@ class InputField extends React.Component{
                     <div>
                         <label className="modal-label">
                             Title
-                            <input className="bx" type="text"/>
+                            <input className="bx" type="text" value={this.state.title}/>
                         </label>
                         <label className="modal-label">
                             Body
-                            <input className="bx bx-body" type="text"/>
+                            <input className="bx bx-body" type="text" value={this.state.body}/>
                         </label>
                     </div>
                 </Modal>
