@@ -9,37 +9,49 @@
 
   .modal-header {
     background-color:#1E90FF;
-    height: 15%;
-    border-top-left-radius: 0.5em;
-    border-top-right-radius: 0.5em;
+    height: 17%;
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em;
   }
   .modal-main {
-    position:fixed;
+    position: fixed;
     background: white;
+    border-radius: 0.5em;
     top:50%;
     left:50%;
-    width: 20%;
-    height: 30%;
+    width: 30%;
+    height: 40%;
     transform: translate(-50%,-50%);
-    border-radius: 0.5em;
+    border-color: #1E90FF;  
+    border-style:solid;
+  }
+  .modal-content{
+    padding: 40px;
+    display: flex;
+    align-content: center;
   }
   .close {
+    position: fixed;
     color: white;
-    float: right;
-    font-size: 28px;
+    right: 5%;
+    font-size: 30px;
     font-weight: bold;
     cursor: pointer;
   }
   .p-header{
-    position: fixed;
     color: white;
     font-weight: bold;
-    padding: 0 1em;
+    font-size: 18px;
+    position: fixed;
+    left: 5%;
   }
  
-  .btn-pos{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding: 1em;
+
+  input[type=text] {
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
   }
