@@ -6,33 +6,40 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
   }
-  
+
+  .modal-header {
+    background-color:#1E90FF;
+    height: 15%;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+  }
   .modal-main {
     position:fixed;
     background: white;
-    width: 80%;
-    height: auto;
     top:50%;
     left:50%;
+    width: 20%;
+    height: 30%;
     transform: translate(-50%,-50%);
+    border-radius: 0.5em;
   }
-  
-  .display-block {
-    display: block;
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
   }
-  
-  .display-none {
-    display: none;
+  .p-header{
+    position: fixed;
+    color: white;
+    font-weight: bold;
+    padding: 0 1em;
   }
-
-  .modal-label{
-      width: 100%;
-  }
-
-  .bx{
-    border-radius: 5px;
-  }
-
-  .bx-body{
-      height: 50px;
+ 
+  .btn-pos{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
   }
