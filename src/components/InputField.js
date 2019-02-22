@@ -36,9 +36,10 @@ class InputField extends Component{
         this.setState({body: event.target.value});
     }
 
+
     handleSubmit(event){
         event.preventDefault();
-        
+        this.setState({edited: false});
         fetch(API + this.state.id)
             .then(response => response.json())
             .then(data => this.setState({title: data.title, body: data.body}));
@@ -49,7 +50,7 @@ class InputField extends Component{
        return( e =>{
             e.preventDefault();
             this.toggleModal();
-            this.setState({edited: !this.state.edited});
+            this.setState({edited: true});
             var d = new Date();
             this.setState({time: d.toLocaleString()})
         });
