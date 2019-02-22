@@ -82,12 +82,12 @@ class InputField extends Component{
                         <input type="submit" className="btn btn-normal" value="Edit" />
                     </form>
 
-                    <div className={this.state.edited ? "div-edit": "div-edit-hide"}>
+                    <div className={this.state.edited ? "div": "div div-hide"}>
                         <p className="p-edit">Title:</p>
                         <p>{this.state.title}</p>
-                        <p>body:</p>
+                        <p className="p-edit">body:</p>
                         <p>{this.state.body}</p>
-                        <p>Time:</p>
+                        <p className="p-edit">Time:</p>
                         <p>{this.state.time}</p>
                     </div>
                 </div>            

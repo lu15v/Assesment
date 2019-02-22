@@ -34,10 +34,12 @@ background-color: #ffffff;
     font-weight: bold; 
   }
 
-  .div-edit{
-    display: flex;
-    flex-direction: column;
+  .div{
+    margin: 0 auto;
+    width: 30%;
+    text-align: left !important;
   }
-  .div-edit-hide{
+
+  .div-hide{
     display: none;
   }
