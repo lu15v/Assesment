@@ -11,12 +11,10 @@ export const Modal = ({children, onCancel, onOk, header}) =>
                         <span className="close" onClick={onCancel}><p className="p-header">{header}</p>  &times;</span>
                         
                     </section>
-                    <div className="modal-content">
-                        <form >
+                        <form className="modal-content">
                             {children}
                             <button className="btn btn-cancel " onClick={onCancel}>Cancel</button>
                         </form>
-                    </div>
                 </div>
             </div>,
             document.body

@@ -62,23 +62,18 @@ class InputField extends Component{
         return(
                 <div>
                     <Modal onOk={this.state.show}  onCancel={this.toggleModal} header={"Editing:  " + this.state.id}> 
-                            <label className="modal-label">
-                                Title
-                            </label>
+                            <label className="modal-label">Title</label>
                             <input className="box" type="text" value={this.state.title} onChange={this.handleChangeT} />
                             
-                            <label className="modal-label">
-                                Body
-                            </label>
+                            <label className="modal-label"> Body</label>
                             <input className="box" type="text" value={this.state.body} onChange={this.handleChangeB} />
                             <button type="submit"  className="btn btn-normal" onClick={this.save(this.state.title, this.state.body)}>Save</button>
                     </Modal>
                 
                     <form  onSubmit={this.handleSubmit}>
-                        <label className="modal-label">
-                            Post ID
-                            <input className="box" onChange={this.handleChange} />
-                        </label>
+                        <label >Post ID </label>
+                        <input className="box" onChange={this.handleChange} />
+                       
                         <input type="submit" className="btn btn-normal" value="Edit" />
                     </form>
 

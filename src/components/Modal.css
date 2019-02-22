@@ -27,8 +27,7 @@
   }
   .modal-content{
     padding: 30px;
-    display: flex;
-    align-content: center;
+  
   }
   .close {
     position: fixed;
