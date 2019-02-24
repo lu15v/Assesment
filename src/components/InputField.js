@@ -17,13 +17,12 @@ class InputField extends Component{
         this.handleChangeTitle = this.handleChangeTitle.bind(this);
         this.handleChangeBody = this.handleChangeBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.save = this.save.bind(this);
     }
 
     toggleModal = () => {
         this.setState({show: !this.state.show});
     }
-
-    
     handleChangeId(event) {
         this.setState({id: event.target.value});
     }
@@ -57,25 +56,25 @@ class InputField extends Component{
         }
     }
 
-    save(title, body){
-       return( e =>{
-            e.preventDefault();
-            this.toggleModal();
-            this.setState({edited: true});
-            var d = new Date();
-            this.setState({time: d.toLocaleString()})
-        });
+    save(e){
+        e.preventDefault();
+        var d = new Date();
+        this.setState({time: d.toLocaleString()})
+        var t = this.refs.title.value;
+        var b = this.refs.body.value;
+        this.toggleModal();
+        this.setState({edited: true, title: t, body: b});
     }
     render (){
         return(
                 <div>
                     <Modal onOk={this.state.show}  onCancel={this.toggleModal} header={"Editing:  " + this.state.id}> 
                             <label className="modal-label">Title</label>
-                            <input className="box" type="text" value={this.state.title} onChange={this.handleChangeTitle} />
+                            <input ref="title" className="box" type="text" defaultValue={this.state.title} />
                            
                             <label className="modal-label"> Body</label>
-                            <input className="box" type="text" value={this.state.body} onChange={this.handleChangeBody} />
-                            <button type="submit"  className="btn btn-normal" onClick={this.save(this.state.title, this.state.body)}>Save</button>
+                            <input ref="body" className="box" type="text" defaultValue={this.state.body}  />
+                            <button type="submit"  className="btn btn-normal" onClick={this.save}>Save</button>
                     </Modal>
                 
                     <form  onSubmit={this.handleSubmit}>
