@@ -13,9 +13,9 @@ class InputField extends Component{
                       show: false,
                       error: false,
                       edited: false};
-        this.handleChange = this.handleChange.bind(this);
-        this.handleChangeT = this.handleChangeT.bind(this);
-        this.handleChangeB = this.handleChangeB.bind(this);
+        this.handleChangeId = this.handleChangeId.bind(this);
+        this.handleChangeTitle = this.handleChangeTitle.bind(this);
+        this.handleChangeBody = this.handleChangeBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -24,15 +24,15 @@ class InputField extends Component{
     }
 
     
-    handleChange(event) {
+    handleChangeId(event) {
         this.setState({id: event.target.value});
     }
     
-    handleChangeT(event) {
+    handleChangeTitle(event) {
         this.setState({title: event.target.value});
     }
 
-    handleChangeB(event) {
+    handleChangeBody(event) {
         this.setState({body: event.target.value});
     }
 
@@ -71,16 +71,16 @@ class InputField extends Component{
                 <div>
                     <Modal onOk={this.state.show}  onCancel={this.toggleModal} header={"Editing:  " + this.state.id}> 
                             <label className="modal-label">Title</label>
-                            <input className="box" type="text" value={this.state.title} onChange={this.handleChangeT} />
+                            <input className="box" type="text" value={this.state.title} onChange={this.handleChangeTitle} />
                            
                             <label className="modal-label"> Body</label>
-                            <input className="box" type="text" value={this.state.body} onChange={this.handleChangeB} />
+                            <input className="box" type="text" value={this.state.body} onChange={this.handleChangeBody} />
                             <button type="submit"  className="btn btn-normal" onClick={this.save(this.state.title, this.state.body)}>Save</button>
                     </Modal>
                 
                     <form  onSubmit={this.handleSubmit}>
                         <label >Post ID </label>
-                        <input className="box" onChange={this.handleChange} />
+                        <input className="box" onChange={this.handleChangeId} />
                        
                         <input type="submit" className="btn btn-normal" value="Edit" />
                     </form>
