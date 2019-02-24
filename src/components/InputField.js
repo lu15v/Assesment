@@ -43,6 +43,7 @@ class InputField extends Component{
         if(isNaN(this.state.id)){
             this.setState({error: true});
         }else{
+            this.setState({error: false});
             fetch(API + this.state.id)
             .then(function(response){
                 if(!response.ok){
