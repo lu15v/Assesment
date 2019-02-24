@@ -14,8 +14,6 @@ class InputField extends Component{
                       error: false,
                       edited: false};
         this.handleChangeId = this.handleChangeId.bind(this);
-        this.handleChangeTitle = this.handleChangeTitle.bind(this);
-        this.handleChangeBody = this.handleChangeBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.save = this.save.bind(this);
     }
@@ -26,20 +24,11 @@ class InputField extends Component{
     handleChangeId(event) {
         this.setState({id: event.target.value});
     }
-    
-    handleChangeTitle(event) {
-        this.setState({title: event.target.value});
-    }
-
-    handleChangeBody(event) {
-        this.setState({body: event.target.value});
-    }
-
 
     handleSubmit(event){
         event.preventDefault();
         this.setState({edited: false});
-        if(isNaN(this.state.id)){
+        if(isNaN(this.state.id)  || this.state.id === ""){
             this.setState({error: true});
         }else{
             this.setState({error: false});
@@ -93,7 +82,7 @@ class InputField extends Component{
                         <p>{this.state.time}</p>
                     </div> 
                     <div className={this.state.error ? "div": "div div-hide"}>
-                        <p>The post ID is not a number</p>
+                        <p>The post ID must be a number</p>
                     </div>
                 </div>            
         );
