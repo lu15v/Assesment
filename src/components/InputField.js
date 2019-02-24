@@ -40,10 +40,20 @@ class InputField extends Component{
     handleSubmit(event){
         event.preventDefault();
         this.setState({edited: false});
-        fetch(API + this.state.id)
-            .then(response => response.json())
-            .then(data => this.setState({title: data.title, body: data.body}));
-        this.toggleModal();
+        if(isNaN(this.state.id)){
+            this.setState({error: true});
+        }else{
+            fetch(API + this.state.id)
+            .then(function(response){
+                if(!response.ok){
+                    throw Error(response.statusText);
+                }
+                return response;
+            }).then(response => response.json())
+            .then(data => this.setState({ title: data.title, body: data.body }))
+            .then(this.toggleModal())
+            .catch(console.log("error"));
+        }
     }
 
     save(title, body){
@@ -56,10 +66,6 @@ class InputField extends Component{
         });
     }
     render (){
-       /* if(isNaN(this.state.id)){
-            throw new Error('It is not a number');
-        }*/
-        
         return(
                 <div>
                     <Modal onOk={this.state.show}  onCancel={this.toggleModal} header={"Editing:  " + this.state.id}> 
@@ -86,6 +92,9 @@ class InputField extends Component{
                         <p className="p-edit">Time:</p>
                         <p>{this.state.time}</p>
                     </div> 
+                    <div className={this.state.error ? "div": "div div-hide"}>
+                        <p>The post ID is not a number</p>
+                    </div>
                 </div>            
         );
     }
