@@ -17,6 +17,8 @@ class InputField extends Component{
         this.handleChangeId = this.handleChangeId.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.save = this.save.bind(this);
+        this.title = React.createRef();
+        this.body = React.createRef();
     }
 
     toggleModal = () => {
@@ -25,28 +27,30 @@ class InputField extends Component{
     handleChangeId(event) {
         this.setState({id: event.target.value});
     }
-    
-
-    handleSubmit(event){
-        event.preventDefault();
-        this.setState({edited: false});
-        if(isNaN(this.state.id)  || this.state.id === ""){
-            this.setState({error: true, errorInfo: "The post ID must be a number"});
-        }else{
-            fetch(API + this.state.id)
-            .then(function(response){
-                if(!response.ok){
-                    return Promise.reject(new Error("something"));
-                }
-                return Promise.resolve(response);
-            })
-            .then(response => response.json())
-            .then(data => {
-                this.setState({ title: data.title, body: data.body }, () => this.toggleModal())
-            })
-            .catch(this.setState({error: true, errorInfo: "Not id found"}))
-
+    handleAnwser(response){
+        if(!response.ok){
+            return Promise.reject(new Error("something"));
         }
+        return Promise.resolve(response.json());
+    }
+
+    settingData(data){
+        this.setState({ title: data.title, body: data.body, error: false }, () => this.toggleModal());
+    }
+    settingError(){
+        this.setState({error: true, errorInfo: "Not id found"});
+    }
+    handleSubmit(event){
+            event.preventDefault();
+            this.setState({edited: false});
+            if(isNaN(this.state.id)  || this.state.id === ""){
+                this.setState({error: true, errorInfo: "The post ID must be a number"});
+            }else{
+                fetch(API + this.state.id)
+                .then(response => this.handleAnwser(response))
+                .then(data => {this.settingData(data)})
+                .catch(() => this.settingError())
+            }
     }
 
     save(e){
