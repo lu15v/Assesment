@@ -12,6 +12,7 @@ class InputField extends Component{
                       time: '',
                       show: false,
                       error: false,
+                      errorInfo: '',
                       edited: false};
         this.handleChangeId = this.handleChangeId.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,35 +25,36 @@ class InputField extends Component{
     handleChangeId(event) {
         this.setState({id: event.target.value});
     }
+    
 
     handleSubmit(event){
         event.preventDefault();
         this.setState({edited: false});
         if(isNaN(this.state.id)  || this.state.id === ""){
-            this.setState({error: true});
+            this.setState({error: true, errorInfo: "The post ID must be a number"});
         }else{
-            this.setState({error: false});
             fetch(API + this.state.id)
             .then(function(response){
                 if(!response.ok){
-                    throw Error(response.statusText);
+                    return Promise.reject(new Error("something"));
                 }
-                return response;
-            }).then(response => response.json())
-            .then(data => this.setState({ title: data.title, body: data.body }))
-            .then(this.toggleModal())
-            .catch(console.log("error"));
+                return Promise.resolve(response);
+            })
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ title: data.title, body: data.body }, () => this.toggleModal())
+            })
+            .catch(this.setState({error: true, errorInfo: "Not id found"}))
+
         }
     }
 
     save(e){
         e.preventDefault();
         var d = new Date();
-        this.setState({time: d.toLocaleString()})
         var t = this.refs.title.value;
         var b = this.refs.body.value;
-        this.toggleModal();
-        this.setState({edited: true, title: t, body: b});
+        this.setState({time: d.toLocaleString(), edited: true, title: t, body: b}, () => this.toggleModal());
     }
     render (){
         return(
@@ -82,7 +84,7 @@ class InputField extends Component{
                         <p>{this.state.time}</p>
                     </div> 
                     <div className={this.state.error ? "div": "div div-hide"}>
-                        <p>The post ID must be a number</p>
+                        <p>{this.state.errorInfo}</p>
                     </div>
                 </div>            
         );
