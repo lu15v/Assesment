@@ -63,13 +63,17 @@ class InputField extends Component{
     render (){
         return(
                 <div>
-                    <Modal onOk={this.state.show}  onCancel={this.toggleModal} header={"Editing:  " + this.state.id}> 
-                            <label className="modal-label">Title</label>
-                            <input ref="title" className="box" type="text" defaultValue={this.state.title} />
-                           
-                            <label className="modal-label"> Body</label>
-                            <input ref="body" className="box" type="text" defaultValue={this.state.body}  />
-                            <button type="submit"  className="btn btn-normal" onClick={this.save}>Save</button>
+                    <Modal onOk={this.state.show}  onCancel={this.toggleModal} header={"Editing:  " + this.state.id} save={this.save}>
+                            <ul className="flex-outer">
+                                <li>
+                                    <label>Title</label>
+                                    <input ref="title" type="text" className="input-normal" defaultValue={this.state.title} />
+                                </li>
+                                <li>
+                                    <label>Body</label>
+                                    <input ref="body"  className="input-body" type="text" defaultValue={this.state.body}  />
+                                </li>
+                            </ul>  
                     </Modal>
                 
                     <form  onSubmit={this.handleSubmit}>

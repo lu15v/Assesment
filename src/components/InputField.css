@@ -1,47 +1,29 @@
-.btn{
-  cursor: pointer;
-  text-align: center;
-  padding: 5px 22px;
-  color: white;
-  font-size: 16px;
-  border-radius: 5px;
-  margin-left: 2em;
-  display: inline-block;
-}
-
-
-.btn-normal{
-background-color: rgb(85, 7, 124);
-}
-.btn-cancel{
-background-color: rgb(162, 154, 167);
-}
-
 .btn-disabled{
-cursor: not-allowed !important;
-background-color: #ffffff;
+  cursor: not-allowed !important;
+  background-color: #ffffff;
 }
 
 .modal-label{
-    padding: 0 1em;
-    text-align: right;
-    float: left;
+  padding: 0 1em;
+  text-align: right;
+  float: left;
   }
-  .box{
-    border-radius: 0.3em;
-    margin-left: 10px;
-  }
-
-  .p-edit{
-    font-weight: bold; 
+  
+.box{
+  border-radius: 0.3em;
+  margin-left: 10px;
   }
 
-  .div{
-    margin: 0 auto;
-    width: 30%;
-    text-align: left !important;
+.p-edit{
+  font-weight: bold; 
   }
 
-  .div-hide{
-    display: none;
-  }
+.div {
+  margin: 0 auto;
+  width: 30%;
+  text-align: left !important;
+}
+  
+.div-hide{
+  display: none;
+}

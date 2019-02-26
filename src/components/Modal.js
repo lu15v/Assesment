@@ -2,18 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
 
-export const Modal = ({children, onCancel, onOk, header}) =>
+export const Modal = ({children, onCancel, onOk, header, save}) =>
      onOk
         ? ReactDOM.createPortal(
             <div className="modal">
                 <div className="modal-main">
-                    <section className="modal-header">
-                        <span className="close" onClick={onCancel}><p className="p-header">{header}</p>  &times;</span>
+                    <div className="modal-header">
+                    <p className="p-header">{header} <span className="close" onClick={onCancel}>  &times;</span></p> 
                         
-                    </section>
-                        <form className="modal-content">
+                    </div>
+                        <form >
                             {children}
-                            <button className="btn btn-cancel " onClick={onCancel}>Cancel</button>
+                            <div className="btn-position">
+                                <button type="submit"  className="btn btn-normal" onClick={save}>Save</button>
+                                <button className="btn btn-cancel " onClick={onCancel}>Cancel</button>
+                            </div>
                         </form>
                 </div>
             </div>,

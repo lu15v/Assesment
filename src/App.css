@@ -31,3 +31,23 @@
     transform: rotate(360deg);
   }
 }
+
+.btn{
+  cursor: pointer;
+  text-align: center;
+  padding: 5px 22px;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-left: 2em;
+  
+}
+
+
+.btn-normal{
+  background-color: rgb(85, 7, 124);
+}
+.btn-cancel{
+  background-color: rgb(162, 154, 167);
+}
+
