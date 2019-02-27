@@ -83,6 +83,7 @@ textarea {
   height: 60px;
   font: 400 13.3333px Arial;
   padding: 30px 6px;
+  
 }
 label.textarea {
   position: relative;
@@ -100,6 +101,10 @@ label.textarea {
   }
   label.textarea {
     bottom: 0px;
+    padding-bottom: 10px;
+  }
+  textarea {
+    margin: 10px;
   }
 }
 
