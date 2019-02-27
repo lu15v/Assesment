@@ -62,7 +62,7 @@ class InputField extends Component{
     }
     render (){
         return(
-                <div>
+                <div className="search-cont">
                     <Modal onOk={this.state.show}  onCancel={this.toggleModal} header={"Editing:  " + this.state.id} save={this.save}>
                             <ul className="flex-outer">
                                 <li>
