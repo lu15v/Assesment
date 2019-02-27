@@ -21,7 +21,12 @@
 .div {
   margin: 0 auto;
   width: 30%;
-  text-align: left !important;
+}
+.div-m{
+  text-align: center;
+}
+.div-info{
+  text-align: left;
 }
   
 .div-hide{

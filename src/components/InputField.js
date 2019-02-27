@@ -83,7 +83,7 @@ class InputField extends Component{
                         <input type="submit" className="btn btn-normal" value="Edit" />
                     </form>
 
-                    <div className={this.state.edited ? "div": "div div-hide"}>
+                    <div className={this.state.edited ? "div div-info": "div div-hide"}>
                         <p className="p-edit">Title:</p>
                         <p>{this.state.title}</p>
                         <p className="p-edit">body:</p>
@@ -91,7 +91,7 @@ class InputField extends Component{
                         <p className="p-edit">Time:</p>
                         <p>{this.state.time}</p>
                     </div> 
-                    <div className={this.state.error ? "div": "div div-hide"}>
+                    <div className={this.state.error ? "div div-m": "div div-hide"}>
                         <p>{this.state.errorInfo}</p>
                     </div>
                 </div>            
