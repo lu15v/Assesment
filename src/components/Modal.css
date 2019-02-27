@@ -9,7 +9,7 @@
 
 .modal-header {
   background-color: #1e90ff;
-  height: 17%;
+  padding: 30px 6px;
   border-top-left-radius: 0.3em;
   border-top-right-radius: 0.3em;
 }
@@ -19,11 +19,12 @@
   border-radius: 0.5em;
   top: 50%;
   left: 50%;
-  width: 30%;
-  height: 40%;
   transform: translate(-50%, -50%);
   border-color: #1e90ff;
   border-style: solid;
+  width: auto;
+  width: 35%;
+  height: 35%;
 }
 .close {
   position: fixed;
@@ -38,9 +39,8 @@
   color: white;
   font-weight: bold;
   font-size: 18px;
-  position: fixed;
-  left: 5%;
-  width: 100%;
+  float: left;
+  display: contents;
 }
 
 .flex-outer,
@@ -73,9 +73,24 @@
 }
 
 .input-body {
-  height: 80px;
+  height: 100px;
+  width: 400px;
 }
 
 .input-normal {
   height: 25px;
+}
+
+@media only screen and (max-width: 1200px ) {
+  .modal-main {
+    width: auto;
+    height: auto;
+  }
+}
+
+@media only screen and (max-height: 800px ) {
+  .modal-main {
+    width: auto;
+    height: auto;
+  }
 }
