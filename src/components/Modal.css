@@ -36,7 +36,7 @@
   top: 19px;
 }
 
-.close:hover{
+.close:hover {
   color: yellowgreen;
 }
 .p-header {
@@ -76,25 +76,36 @@
   box-sizing: border-box;
 }
 
-.input-body {
-  height: 100px;
-  width: 400px;
+textarea {
+  display: inline-block;
+  resize: none;
+  width: 77%;
+  height: 60px;
+  font: 400 13.3333px Arial;
+  padding: 30px 6px;
+}
+label.textarea {
+  position: relative;
+  bottom: 60px;
 }
 
 .input-normal {
   height: 25px;
 }
 
-@media only screen and (max-width: 1200px ) {
+@media only screen and (max-width: 1200px) {
   .modal-main {
     width: auto;
     height: auto;
   }
+  label.textarea {
+    bottom: 0px;
+  }
 }
 
-@media only screen and (max-height: 800px ) {
+@media only screen and (max-height: 800px) {
   .modal-main {
     width: auto;
-    height: auto;
+    height: 50%;
   }
 }

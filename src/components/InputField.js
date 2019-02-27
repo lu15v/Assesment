@@ -70,8 +70,9 @@ class InputField extends Component{
                                     <input ref="title" type="text" className="input-normal" defaultValue={this.state.title} />
                                 </li>
                                 <li>
-                                    <label>Body</label>
-                                    <input ref="body"  className="input-body" type="text" defaultValue={this.state.body}  />
+                                    <label className="textarea">Body</label>
+                                    <textarea ref="body"  defaultValue={this.state.body} >
+                                    </textarea>
                                 </li>
                             </ul>  
                     </Modal>
