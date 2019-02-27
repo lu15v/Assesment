@@ -35,6 +35,10 @@
   cursor: pointer;
   top: 19px;
 }
+
+.close:hover{
+  color: yellowgreen;
+}
 .p-header {
   color: white;
   font-weight: bold;
